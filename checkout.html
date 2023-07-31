@@ -299,7 +299,7 @@
         data-wow-delay=".2s"
       >
         <div class="container">
-          <form action="#">
+          <form action="#" id="form">
             <div class="row">
               <div class="col-lg-6 col-md-12">
                 <div class="checkbox-form">
@@ -310,19 +310,19 @@
                         <label
                           >First Name <span class="required">*</span></label
                         >
-                        <input type="text" placeholder="" />
+                        <input type="text" placeholder="" id="Fname" />
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="checkout-form-list">
                         <label>Last Name <span class="required">*</span></label>
-                        <input type="text" placeholder="" />
+                        <input type="text" placeholder="" id="Lname" />
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="country-select">
                         <label>Class<span class="required">*</span></label>
-                        <select>
+                        <select id="class">
                           <option value="1">1st</option>
                           <option value="2">2nd</option>
                           <option value="3">3rd</option>
@@ -341,13 +341,17 @@
                         <label
                           >School Name <span class="required">*</span></label
                         >
-                        <input type="text" placeholder="" />
+                        <input type="text" placeholder="" id="school" />
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="checkout-form-list">
                         <label>Address <span class="required">*</span></label>
-                        <input type="text" placeholder="Street address" />
+                        <input
+                          type="text"
+                          placeholder="Street address"
+                          id="address"
+                        />
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -355,6 +359,7 @@
                         <input
                           type="text"
                           placeholder="Apartment, suite, unit etc. (optional)"
+                          id="address2"
                         />
                       </div>
                     </div>
@@ -363,7 +368,11 @@
                         <label
                           >Town / City <span class="required">*</span></label
                         >
-                        <input type="text" placeholder="Town / City" />
+                        <input
+                          type="text"
+                          placeholder="Town / City"
+                          id="city"
+                        />
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -371,7 +380,7 @@
                         <label
                           >State / County <span class="required">*</span></label
                         >
-                        <input type="text" placeholder="" />
+                        <input type="text" placeholder="" id="state" />
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -379,7 +388,11 @@
                         <label
                           >Postcode / Zip <span class="required">*</span></label
                         >
-                        <input type="text" placeholder="Postcode / Zip" />
+                        <input
+                          type="text"
+                          placeholder="Postcode / Zip"
+                          id="postcode"
+                        />
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -387,13 +400,13 @@
                         <label
                           >Email Address <span class="required">*</span></label
                         >
-                        <input type="email" placeholder="" />
+                        <input type="email" placeholder="" id="email" />
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="checkout-form-list">
                         <label>Phone <span class="required">*</span></label>
-                        <input type="text" />
+                        <input type="text" id="phone" />
                       </div>
                     </div>
                     <!-- <div class="col-md-12">
@@ -549,7 +562,7 @@
                         <tr>
                           <th class="product-name">Product</th>
                           <th class="product-total">
-                            <select>
+                            <select id="course">
                               <option value="English">English</option>
                               <option value="Mathematics">Mathematics</option>
                               <option value="Physics">Physics</option>
@@ -590,7 +603,9 @@
                           <th>Order Total</th>
                           <td>
                             <strong
-                              ><span class="amount">Rs. 29.99</span></strong
+                              ><span class="amount" id="total"
+                                >Rs. 29.99</span
+                              ></strong
                             >
                           </td>
                         </tr>
@@ -626,7 +641,9 @@
                       </div>
                     </div>
                     <div class="order-button-payment mt-20">
-                      <button type="submit" class="tp-btn">Place order</button>
+                      <button type="submit" class="tp-btn" id="order">
+                        Place order
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -737,4 +754,18 @@
     <script src="assets/js/ajax-form.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
+
+  <script>
+    const form = document.getElementById("form");
+    const order = document.getElementById("order");
+    const Class = document.getElementById("class");
+    const Course = document.getElementById("course");
+    const total = document.getElementById("total");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Order Placed for " + total.innerText);
+      window.location.href = "index.html";
+    });
+  </script>
 </html>

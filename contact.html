@@ -292,8 +292,13 @@
                 <div class="sub-contact-title">
                   <h5 class="contact-title mb-30">Send Us Message</h5>
                 </div>
-                <div class="contact-for">
-                  <form id="contact-for" mailto="satyabratojha04@gmail.com">
+                <div class="contact-form">
+                  <form
+                    id="contact-form"
+                    action="mailto:info@alokinstitute.com"
+                    method="post"
+                    enctype="text/plain"
+                  >
                     <div class="row">
                       <div class="col-md-6">
                         <div class="contact-form-input mb-25">
@@ -329,7 +334,7 @@
                             required
                           ></textarea>
                         </div>
-                        <button class="tp-btn" id="submit-btn">
+                        <button class="tp-btn" id="submit-btn" type="submit">
                           Submit Now
                         </button>
                       </div>
@@ -527,5 +532,23 @@
     <script src="assets/js/imagesloaded-pkgd.js"></script>
     <script src="assets/js/ajax-form.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <!-- <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      const form = document.getElementById("contact-form");
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "username",
+        Password: "password",
+        To: "them@website.com",
+        From: "you@isp.com",
+        Subject: "This is the subject",
+        Body: "And this is the body",
+      }).then((message) => alert(message));
+    </script> -->
   </body>
 </html>
