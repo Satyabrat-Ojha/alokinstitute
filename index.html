@@ -60,6 +60,114 @@
     </div>
     <!-- back to top end -->
 
+    <div class="popupMessage" id="popup-form">
+      <div class="overlay"></div>
+      <div class="messageBox">
+        <div class="content">
+          <div class="header">
+            <h4 class="title">We're Here to Help</h4>
+            <button class="close" onclick="closePopup()">&times;</button>
+          </div>
+          <div class="body px-4">
+            <form class="form row" onsubmit="submitform(event)">
+              <div class="col-md-6 mb-3">
+                <label class="label" for="name"> Name </label>
+                <input
+                  type="text"
+                  class="input"
+                  name="name"
+                  id="name"
+                  placeholder="Enter your name"
+                  autofocus
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="label" for="fname"> Father's Name </label>
+                <input
+                  type="text"
+                  class="input"
+                  name="fname"
+                  id="fname"
+                  placeholder="Enter your father's name"
+                  autofocus
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="label" for="sname"> School Name </label>
+                <input
+                  type="text"
+                  class="input"
+                  name="sname"
+                  id="sname"
+                  placeholder="Enter name of your school"
+                  autofocus
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="label" for="class"> Class </label>
+                <input
+                  type="text"
+                  class="input"
+                  name="class"
+                  id="class"
+                  placeholder="Enter your class"
+                  autofocus
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="label" for="subject"> Subject </label>
+                <input
+                  type="text"
+                  class="input"
+                  name="subject"
+                  id="subject"
+                  placeholder="Enter subject"
+                  autofocus
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="label" for="enquiry"> Purpose of Enquiry </label>
+                <select
+                  name="enquiry"
+                  id="enquiry"
+                  class="{styles.formSelect}"
+                  required
+                >
+                  <option value="Tution">Tution</option>
+                  <option value="Government Job Classes">
+                    Government Job Classes
+                  </option>
+                  <option value="Spoken English Classes">
+                    Spoken English Classes
+                  </option>
+                  <option value="NIOS">NIOS</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="label" for="phone"> Mobile Number </label>
+                <input
+                  type="tel"
+                  class="input"
+                  name="phone"
+                  id="phone"
+                  placeholder="Enter your mobile number"
+                  required
+                />
+              </div>
+              <div class="col-12 mb-2 mt-1 text-center">
+                <input type="submit" value="SUBMIT" class="btn" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- header area start -->
     <header class="header__transparent">
       <div class="header__area">
@@ -1842,6 +1950,39 @@
     <!-- footer-area-end -->
 
     <!-- JS here -->
+    <script>
+      // Function to show the popup after 3 seconds
+      function showPopup() {
+        setTimeout(function () {
+          document.getElementById("popup-form").style.display = "flex";
+        }, 3000);
+      }
+
+      function closePopup() {
+        document.getElementById("popup-form").style.display = "none";
+      }
+
+      function submitform(event) {
+        event.preventDefault();
+        let name = document.getElementById("name").value;
+        let fathersname = document.getElementById("fname").value;
+        let school = document.getElementById("sname").value;
+        let batch = document.getElementById("class").value;
+        let subject = document.getElementById("subject").value;
+        let phone = document.getElementById("phone").value;
+        let enquiry = document.getElementById("enquiry").value;
+        // const number = 917503404802;
+        const number = 919021469582;
+        const message = `I need guidance in ${enquiry}. My name is ${name}, my father's name is ${fathersname}, I study in ${school} in class ${batch} and I want to learn ${subject}. My phone number is ${phone}.`;
+        window.open(
+          `https://api.whatsapp.com/send?phone=${number}&text=${message}`
+        );
+        closePopup();
+      }
+
+      window.onload = showPopup;
+    </script>
+
     <script src="assets/js/vendor/jquery.js"></script>
     <script src="assets/js/vendor/waypoints.js"></script>
     <script src="assets/js/bootstrap-bundle.js"></script>
